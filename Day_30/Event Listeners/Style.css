@@ -1,0 +1,41 @@
+body{
+    background: #283149;
+    text-align: center;
+}
+.container{
+    margin: auto;
+}
+
+h1{
+   color: #DBEDF3;
+   margin: 10%;
+   font-size: 5rem;
+   text-shadow: 5px 0 maroon;
+   font-family: "Sixtyfour", serif;
+}
+
+.keys{
+    text-align: center;
+    display: inline-block;
+}
+button{
+    margin: 10px;
+    border: 10px solid #404B69;
+    font-size: 5rem;
+    color: #DA0463;
+    text-shadow: 3px 0 #645645;
+    width: 150px;
+    height: 150px;
+    line-height: 2;
+    font-weight: 900;
+    text-align: center;
+
+}
+
+footer{
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 15%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
