@@ -1,10 +1,7 @@
 function handel() {
-    alert("I got Click.");
+    alert("I got Clicked!.");
 }
-document.querySelectorAll("button")[0].addaEventListner("click","handel");
-document.querySelectorAll("button")[1].addaEventListner("click","handel");
-document.querySelectorAll("button")[2].addaEventListner("click","handel");
-document.querySelectorAll("button")[3].addaEventListner("click","handel");
-document.querySelectorAll("button")[4].addaEventListner("click","handel");
-document.querySelectorAll("button")[5].addaEventListner("click","handel");
-document.querySelectorAll("button")[6].addaEventListner("click","handel");
+var numberbutton = document.querySelectorAll("button").length;
+for(var i=0; i<numberbutton;i++){
+    document.querySelectorAll("button")[i].addEventListener("click",handel);
+}
