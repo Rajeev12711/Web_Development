@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(1, 31, 63);
+    text-align: center;
+}
+h1{
+    margin: 5%;
+    text-align: center;
+    color: antiquewhite;
+    font-size: 3.2rem;
+    font-family: "Sixtyfour", serif;
+    text-shadow: 10px 0 black;
+}
+button{
+    width: 220px;
+    height: 220px;
+    margin: 30px;
+    border-radius: 40px;
+    border: 10px solid black;
+
+}
+
+.green{
+    background-color: green;
+}
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.blue{
+    background-color: blue;
+}
+
+.pressed {
+    box-shadow: 0 0 20px white;
+    background-color: grey;
+}
+
+.game-over{
+    background-color: red;
+}
