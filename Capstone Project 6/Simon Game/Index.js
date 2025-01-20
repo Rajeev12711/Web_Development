@@ -20,7 +20,7 @@ $(document).keypress(function() {
   }
 });
 
-$("button").on("click", handler);
+$("button").click( handler);
 function handler(){
 
   var userChosenColour = this.getAttribute("class");
@@ -52,15 +52,13 @@ function checkAnswer(currentLevel){
     playSound("wrong");
 
     $("body").addClass("game-over");
+    $("h1").text("Game Over, Press Any Key to Restart");
     setTimeout(() => {
       $("body").removeClass("game-over");
     }, 200);
-    $("h1").text("Game Over, Press Any Key to Restart");
-    
 
     startOver();
   }
-
 }
 
 function nextSequence() {
@@ -77,15 +75,11 @@ function nextSequence() {
 
   gamePattern.push(randomChosenColour); 
 
-  
-
   $("." + randomChosenColour).fadeOut(100).fadeIn(100);
 
   playSound(randomChosenColour);
 
 }
-
-pattern = nextSequence();
 
 function playSound(name){
   
