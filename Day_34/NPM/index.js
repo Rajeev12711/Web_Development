@@ -7,4 +7,4 @@ console.log(`My name is ${sillyName}.`);
 
 
 import {randomSuperhero} from 'superheroes';
-console.log(`I am your Super Hero ${randomSuperhero()}`)
+console.log(`I am your Super Hero ${randomSuperhero()}!.`)
