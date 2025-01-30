@@ -1,7 +1,5 @@
 import inquirer from 'inquirer';
-
 import qr from "qr-image";
-
 import fs from "fs";
 
 inquirer
@@ -20,8 +18,6 @@ inquirer
         if (err) throw err;
         console.log('The file has been saved!');
       });
-
-
   })
   .catch((error) => {
     if (error.isTtyError) {
@@ -30,6 +26,8 @@ inquirer
       // Something else went wrong
     }
   });
+
+
 
 
  
