@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "hi",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/rajeev-27/Web_Development/issues"
   },
-  "homepage": "https://github.com/rajeev-27/Web_Development#readme"
+  "homepage": "https://github.com/rajeev-27/Web_Development#readme",
+  "dependencies": {
+    "sillyname": "^0.1.0",
+    "superheroes": "^4.0.0"
+  }
 }
