@@ -1,0 +1,19 @@
+{
+  "name": "http-request",
+  "version": "1.0.0",
+  "description": "HTTP Request",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "module"
+  },
+  "repository": {
+    "type": "git",
+    "url": "rajeev-27"
+  },
+  "author": "Rajeev",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
