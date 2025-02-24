@@ -1,0 +1,19 @@
+{
+  "name": "creating-our-first-server-with-express",
+  "version": "1.0.0",
+  "description": "Server",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "rajeev-27"
+  },
+  "author": "rajeev",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
