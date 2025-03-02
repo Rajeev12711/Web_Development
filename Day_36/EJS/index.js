@@ -3,22 +3,25 @@ import express from "express";
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) =>{
+function Weekday_warrior(){
     const d = new Date();
     const type = d.getDay();
-    let weekday = "";
-    let advice ="";
+    let hit ={}
     if (type ===  0 || type ==6){
-        weekday = "weekend",
-        advice = "it's time to have some fun!";
+        hit= {weekday : "weekend",
+        advice : "it's time to have some fun!",}
     }else{
-        weekday = "weekday",
-        advice = "it's time to work hard!";
+        hit={weekday : "weekday",
+        advice : "it's time to work hard!"} 
     };
-    res.render("index.ejs", {
-        datetype: weekday,
-        adv : advice
-    })
+    return hit;
+
+};
+
+app.set(Weekday_warrior);
+
+app.get("/", (req, res) =>{
+    res.render("index.ejs", Weekday_warrior());
 });
 
 app.listen(port, ()=> {
