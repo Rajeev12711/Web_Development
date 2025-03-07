@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passing Data</title>
+</head>
+<body>
+    <% if (locals.lengthtnumber) { %>
+        <h1>There are <%= lengthtnumber %> in your name.</h1>
+        <% } else { %>
+            <h1>Write your name below </h1>
+            <% } %>
+    <form action="/submit" method="POST">
+        <input type="text", placeholder="First Name", name="fname">
+        <input type="text", placeholder="Last Name", name="lname">
+        <input type="submit", placeholder="submit">
+    </form>
+    
+</body>
+</html>
