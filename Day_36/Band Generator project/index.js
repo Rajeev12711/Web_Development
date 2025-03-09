@@ -6,7 +6,6 @@ const port = 3000;
 
 app.use(express.static("public"));
 
-// const year = new Date().getFullYear();
 
 app.use(bodyParser.urlencoded({extended: true}));
 

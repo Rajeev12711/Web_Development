@@ -26,7 +26,7 @@ input{
 
 }
 input:hover{
-    background-color: antiquewhite;
+    background-color: honeydew;
 }
 
 
@@ -37,5 +37,4 @@ h1{
 footer{
     position: absolute;
     bottom: 0;
-    
 }
