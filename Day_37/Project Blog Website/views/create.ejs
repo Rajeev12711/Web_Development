@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs') %>
+
+<div>
+    <div class="contact_main">
+        <h1>Post a Blog</h1>
+        <form action="/create" method="POST">
+          <input name="title" type="text" class="feedback-input" placeholder="Title" />
+          <input name="author" type="text" class="feedback-input" placeholder="Author" />
+          <input name="category" type="text" class="feedback-input" placeholder="Category" />
+          <input name="tags" type="text" class="feedback-input" placeholder="Tags" />
+          <input name="date" type="text" class="feedback-input" placeholder="Date" />
+          <input name="subcontect" type="text" class="feedback-input" placeholder="Subject" />
+          <textarea name="content" class="feedback-input" placeholder="Content"></textarea>
+          <input type="submit" value="SUBMIT" />
+        </form>
+      </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
+

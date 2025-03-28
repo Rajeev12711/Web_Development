@@ -5,24 +5,36 @@ const app = express();
 const port = 3000;
 
 app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
     const post_length = Object.keys(blog).length;
-    res.render("index.ejs", ({index_length: post_length}, blog));
+    const blogpost = blog;
+    res.render("index.ejs", {index_length:post_length, blogs:blogpost});
 });
 
 
-// app.post("/create", (req, res) =>{
-//     res.render("");
+app.get("/create", (req, res) =>{
+    res.render("create.ejs");
 
-// });
+});
 app.get("/contact", (req, res)=>{
     res.render("contact.ejs");
 });
 
-app.get("/about", (req, res)=>{
+app.use("/about", (req, res)=>{
     res.render("about.ejs");
 });
+
+app.post("/create", (req, res) =>{
+  blog.push(req.body);
+  res.redirect("/");
+});
+
+// app.delete("/delete", (req, res) ={
+
+// } );
+
 
 app.listen(port, ()=>{
     console.log(`server running on port: ${port}`);    
@@ -31,6 +43,7 @@ app.listen(port, ()=>{
 
 const blog = [
     {
+      
       title: "The Evolution of Artificial Intelligence",
       author: "John Doe",
       category: "Technology",
@@ -51,6 +64,7 @@ const blog = [
       The future of AI is promising. With advancements in deep learning, neural networks, and quantum computing, AI will continue to evolve. The question remains: will AI remain a tool for humans, or will it redefine what it means to be intelligent?`
     },
     {
+      
       title: "The Future of Web Development in 2025",
       author: "Jane Smith",
       category: "Web Development",
@@ -71,6 +85,7 @@ const blog = [
       As the demand for better user experiences grows, accessibility, security, and performance will be the main focus areas for developers in 2025.`
     },
     {
+      id:3,
       title: "Mastering JavaScript: A Guide for Beginners",
       author: "Alex Johnson",
       category: "Programming",
@@ -130,8 +145,7 @@ const blog = [
   
       Remote work is here to stay. Businesses that embrace flexibility and digital collaboration will thrive in the new era of work.`
     },
-    
-    
+     
       
       
   ];
