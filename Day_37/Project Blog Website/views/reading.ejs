@@ -1,0 +1,19 @@
+<%- include('partials/header.ejs') %>
+<div class="top_read">
+    <div class="reading_container">
+        <di class="blog.read">
+            <h1 class="title_button"><%= blogpost.title %> <button class="btn" onclick="deleteBlog()"> x </button></h1>
+            <p><strong>Category: </strong><%= blogpost.category %></p>
+            <p><strong>Tags: </strong><%=blogpost.tags%></p>
+            <p><strong>Author: </strong><%= blogpost.author %></p> 
+            <p><strong>Date:</strong><%= blogpost.date %></p>
+            <p ><b><%= blogpost.subcontect %></b></p>
+            <p><%= blogpost.content %></p>
+            <a href="/">Back to Home</a>
+            <button>Delete</button>
+        </div>
+    </div>
+</div>
+
+
+<%- include('partials/footer.ejs') %>

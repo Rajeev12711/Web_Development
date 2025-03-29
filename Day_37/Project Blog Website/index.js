@@ -1,16 +1,17 @@
 import express from "express";
+import bodyParser from "body-parser";
 
 const app = express();
-
 const port = 3000;
 
 app.use(express.static("public"));
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extend: true}));
+
 
 app.get("/", (req, res) => {
     const post_length = Object.keys(blog).length;
-    const blogpost = blog;
-    res.render("index.ejs", {index_length:post_length, blogs:blogpost});
+    const blogposts = blog;
+    res.render("index.ejs", {index_length:post_length, blogs:blogposts});
 });
 
 
@@ -22,7 +23,7 @@ app.get("/contact", (req, res)=>{
     res.render("contact.ejs");
 });
 
-app.use("/about", (req, res)=>{
+app.get("/about", (req, res)=>{
     res.render("about.ejs");
 });
 
@@ -31,9 +32,19 @@ app.post("/create", (req, res) =>{
   res.redirect("/");
 });
 
-// app.delete("/delete", (req, res) ={
+app.get("/reading/:index", (req, res) => {
+  const index = parseInt(req.params.index);
+  
+  if (index >= 0 && index < blog.length) {
+      res.render("reading.ejs", { blogpost:blog[index] });
+  }
+});
 
-// } );
+app.delete("/delete/:index", (req, res) => {
+  const postId = paraseInt(req.params.index);
+  blogPost = blogPost.filter(post => post.index !== postId);
+  res.redirect("/");
+});
 
 
 app.listen(port, ()=>{
