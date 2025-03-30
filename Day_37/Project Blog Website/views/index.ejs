@@ -2,12 +2,22 @@
     <% blogs.forEach((blog,index) => { %>
       <div class="main_container">
         <div class=" blog_post">
-          <h1 class="title_button"><%= blog.title %> <button class="btn" onclick="deleteBlog()"> x </button></h1>
+          <h1 class="title_button"><%= blog.title %> <button class="btn" onclick="deleteBlog('<%=index%>')"> x </button></h1>
           <p><%= blog.author %> | <%= blog.date %></p>
           <p ><b><%= blog.subcontect %></b></p>
-          <p><a href="/reading/ <%= index %>">Read More</a></p>
+          <p><a href="/reading/<%=index%>">Read More</a></p>
         </div>
       </div>
     <%  }); %>
-
+<script>
+  async function deleteBlog(index){
+    await fetch('http://localhost:3000/delete/'+index, {
+    method: 'DELETE',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+});
+window.location.reload(); 
+  } ;
+</script>
 <%- include('partials/footer.ejs') %>

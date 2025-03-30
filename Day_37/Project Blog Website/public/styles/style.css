@@ -73,11 +73,12 @@ html, body{
     margin: 0%;
     position: relative;
     top: 90px;
+    min-height: calc(100%);
 }
 .blog_post{
     border: 5px solid black;
     background-color: gainsboro;
-    margin: 1%  15% 0 15%;
+    margin: 1% 15% 0 15%;
     padding-left: 30px; 
 }
 .title_button{
@@ -85,6 +86,7 @@ html, body{
     justify-content: space-between;
 }
 .btn{
+    size: fixed;
     border: black solid 2px;
     padding: 0;
     margin-right: 10px;
@@ -133,6 +135,7 @@ html, body{
     flex-direction: column;
     justify-content: center;
     position: relative;
+    bottom: 1;
 }
 .reading_container{
     position: relative;
@@ -179,6 +182,10 @@ textarea{
     background-color: whitesmoke;
     padding: 20px;
     margin-top: 100px;
+    position: relative;
+    
+
+    
 }
 hr{
     width: 80vw;

@@ -5,7 +5,8 @@ const app = express();
 const port = 3000;
 
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({extend: true}));
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 
 app.get("/", (req, res) => {
@@ -41,8 +42,12 @@ app.get("/reading/:index", (req, res) => {
 });
 
 app.delete("/delete/:index", (req, res) => {
-  const postId = paraseInt(req.params.index);
-  blogPost = blogPost.filter(post => post.index !== postId);
+  const index = parseInt(req.params.index);
+  
+  if (index >= 0 && index < blog.length) {
+    blog.splice(index, 1);
+    
+  }
   res.redirect("/");
 });
 
