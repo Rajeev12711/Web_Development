@@ -24,7 +24,6 @@ app.get("/", (req, res) =>{
 });
 
 app.post("/submit", (req, res) =>{
-  // bandname = req.body["street"] + req.body["pet"]; we can also this way instead of function bandnamegenerator.
   res.send(`<h1>Your band name is:</h1>\n <h2> ${bandname}<h2>`);
  
 });
