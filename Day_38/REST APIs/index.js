@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import "dotenv/config"
 
 const app = express();
-const port = process.env.PORT
+const port = process.env.PORT;
 const API_URL = process.env.API_URL;
 
 const yourBearerToken = process.env.yourBearerToken;
