@@ -10,7 +10,7 @@
 
 <body>
   <form action="/add" method="post">
-    <input type="text" name="country" autofocus placeholder="<%= locals.error ? error :  'Enter country name <e.g. "Sao Tome and Principe">'%>">
+    <input type="text" name="country" autofocus placeholder="<%= locals.error ? error :  'Enter country name'%>">
     <button type="submit">Add</button>
   </form>
 
@@ -384,7 +384,8 @@
         el.style.fill = "teal";
       } else {
         console.warn(`Element with ID ${code} not found on map`);
-      } 
+      }
+      
     });
   </script>
 

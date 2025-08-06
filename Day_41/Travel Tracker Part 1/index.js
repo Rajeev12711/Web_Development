@@ -32,9 +32,9 @@ app.get("/", async (req, res) => {
   });
   console.log(result.rows);
   res.render("index.ejs", { countries: countries, total: countries.length });
+  db.end()
 });
 
-  
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
