@@ -49,12 +49,16 @@ app.get("/", async (req, res) => {
     countries: countries,
     total: countries.length,
     users: users,
-    color: currentUser.color,
+    color: currentUser ? currentUser.color : "blue",
   });
 });
+
+
 app.post("/add", async (req, res) => {
   const input = req.body["country"];
   const currentUser = await getCurrentUser();
+
+  if (!currentUser) return res.redirect("/");
 
   try {
     const result = await db.query(
@@ -62,21 +66,26 @@ app.post("/add", async (req, res) => {
       [input.toLowerCase()]
     );
 
-    const data = result.rows[0];
-    const countryCode = data.country_code;
+    if (result.rows.length === 0) {
+      console.log("No country found");
+      return res.redirect("/");
+    }
+
+    const countryCode = result.rows[0].country_code;
     try {
       await db.query(
         "INSERT INTO visited_countries (country_code, user_id) VALUES ($1, $2)",
         [countryCode, currentUserId]
       );
-      res.redirect("/");
     } catch (err) {
-      console.log(err);
+      console.log("Already visited or DB error:", err.message);
     }
   } catch (err) {
     console.log(err);
   }
+  res.redirect("/");
 });
+
 
 app.post("/user", async (req, res) => {
   if (req.body.add === "new") {
@@ -90,14 +99,17 @@ app.post("/user", async (req, res) => {
 app.post("/new", async (req, res) => {
   const name = req.body.name;
   const color = req.body.color;
+  try{
+    const result = await db.query(
+      "INSERT INTO users (name, color) VALUES($1, $2) RETURNING *;",
+      [name, color]
+    );
+    currentUserId = result.rows[0].id;
 
-  const result = await db.query(
-    "INSERT INTO users (name, color) VALUES($1, $2) RETURNING *;",
-    [name, color]
-  );
 
-  const id = result.rows[0].id;
-  currentUserId = id;
+  } catch {
+    console.error("Error adding new user:", err);
+  }
 
   res.redirect("/");
 });
